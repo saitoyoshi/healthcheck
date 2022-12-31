@@ -12,7 +12,6 @@ class Application
         $this->router = new Router($this->registerRoutes());
         $this->response = new Response();
         $this->databaseManager = new DatabaseManager();
-        // $mysqli = new mysqli('db', 'test_user', 'pass', 'test_database');
         $this->databaseManager->connect([
             'hostname' => 'db',
             'username' => 'test_user',

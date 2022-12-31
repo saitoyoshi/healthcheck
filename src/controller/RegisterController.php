@@ -14,7 +14,6 @@ class RegisterController extends Controller
         if (!$this->request->isPost()) {
             throw new HttpNotFoundException();
         }
-        //  = [];
         $record = $this->databaseManager->get('Record');
         $errors = $this->validate($record);
 
@@ -82,6 +81,6 @@ class RegisterController extends Controller
     private function isValidDate($date)
     {
         [$y, $m, $d] = explode('-', $date);
-        return checkdate($m, $d, $y);
+        return checkdate((int) $m, (int) $d, (int) $y);
     }
 }

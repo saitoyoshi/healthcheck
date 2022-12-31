@@ -13,6 +13,7 @@ function statusMessage(int $statuNumber): string
     } elseif ($statuNumber === -2) {
         return '悪い';
     }
+    return '不正な値が指定されました';
 }
 ?>
 <a href="/register">記録をつける</a>
