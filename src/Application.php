@@ -16,13 +16,12 @@ class Application
     {
         try {
             $params = $this->router->resolve($this->request->getPathInfo());
+            $action = $params['action'];
+            $controllerName = ucfirst($params['controller']) . 'Controller';
+            $this->runAction($controllerName, $action);
         } catch (HttpNotFoundException) {
-            // $this->render404();
-            echo 'not found';
+            $this->render404();
         }
-        $action = $params['action'];
-        $controllerName = ucfirst($params['controller']) . 'Controller';
-        $this->runAction($controllerName, $action);
 
         $this->response->send();
     }
@@ -40,6 +39,27 @@ class Application
     private function registerRoutes()
     {
         return ['/' => ['controller' => 'list', 'action' => 'index'],
-    ];
+        ];
+    }
+
+    private function render404()
+    {
+        $this->response->setStatusCode(404, 'Not Found');
+        $this->response->setContent(
+            <<<EOF
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+</head>
+<body>
+    <h1>404 Page Not Found.</h1>
+</body>
+</html>
+EOF
+        );
     }
 }
