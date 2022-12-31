@@ -14,7 +14,7 @@ CREATE TABLE healthrecords (
     back_pain INT NOT NULL,
     eyestrain INT NOT NULL,
     headache INT NOT NULL,
-    recording DATE NOT NULL,
+    recording_date DATE NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4
 EOT;
