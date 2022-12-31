@@ -1,3 +1,1 @@
-<?php
-
-echo 'ok';
+<? var_dump($records) ?>

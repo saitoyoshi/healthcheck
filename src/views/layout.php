@@ -7,6 +7,7 @@
     <title>healthcheck</title>
 </head>
 <body>
+    <h2><a href="/">ヘルスチェック</a></h2>
     <?php echo $content; ?>
 </body>
 </html>

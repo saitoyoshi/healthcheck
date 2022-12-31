@@ -5,11 +5,20 @@ class Application
     private $router;
     protected $request;
     protected $response;
+    protected $databaseManager;
     public function __construct()
     {
         $this->request = new Request();
         $this->router = new Router($this->registerRoutes());
         $this->response = new Response();
+        $this->databaseManager = new DatabaseManager();
+        // $mysqli = new mysqli('db', 'test_user', 'pass', 'test_database');
+        $this->databaseManager->connect([
+            'hostname' => 'db',
+            'username' => 'test_user',
+            'password' => 'pass',
+            'database' => 'test_database',
+        ]);
 
     }
     public function run()
@@ -26,9 +35,18 @@ class Application
         $this->response->send();
     }
 
+    public function getDatabaseManager()
+    {
+        return $this->databaseManager;
+    }
+
+    public function getRequest()
+    {
+        return $this->request;
+    }
     private function runAction($controllerName, $action)
     {
-        $controllerClass = new $controllerName();
+        $controllerClass = new $controllerName($this);
         if (!class_exists($controllerName)) {
             throw new HttpNotFoundException();
         }
