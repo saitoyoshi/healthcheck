@@ -1,18 +1,19 @@
 <?php
-    function statusMessage(int $statuNumber): string
-    {
-        if ($statuNumber === 2) {
-            return 'とても良い';
-        } elseif ($statuNumber === 1) {
-            return '良い';
-        } elseif ($statuNumber === 0) {
-            return '異常なし';
-        } elseif ($statuNumber === -1) {
-            return '違和感あり';
-        } elseif ($statuNumber === -2) {
-            return '悪い';
-        }
+
+function statusMessage(int $statuNumber): string
+{
+    if ($statuNumber === 2) {
+        return 'とても良い';
+    } elseif ($statuNumber === 1) {
+        return '良い';
+    } elseif ($statuNumber === 0) {
+        return '異常なし';
+    } elseif ($statuNumber === -1) {
+        return '違和感あり';
+    } elseif ($statuNumber === -2) {
+        return '悪い';
     }
+}
 ?>
 <a href="/register">記録をつける</a>
 <?php foreach ($records as $record) : ?>
@@ -34,7 +35,7 @@
             <span>目の疲れ: <?php echo statusMessage($record['eyestrain']) ?></span>
         </div>
         <div>
-            <span>頭痛: <?php echo statusMessage($record['headache'] )?></span>
+            <span>頭痛: <?php echo statusMessage($record['headache'])?></span>
         </div>
     </div>
 <?php endforeach; ?>

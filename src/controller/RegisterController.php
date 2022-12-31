@@ -49,19 +49,16 @@ class RegisterController extends Controller
             $errors['mood_state'] = '気分を入力してください';
         } elseif (!$this->isValid($_POST['mood_state'])) {
             $errors['mood_state'] = '気分は-2から2までの整数で入力してください';
-
         }
         if ($_POST['back_pain'] === "") {
             $errors['back_pain'] = '腰痛を入力してください';
         } elseif (!$this->isValid($_POST['mood_state'])) {
             $errors['back_pain'] = '腰痛は-2から2までの整数で入力してください';
-
         }
         if ($_POST['eyestrain'] === "") {
             $errors['eyestrain'] = '目の疲れを入力してください';
         } elseif (!$this->isValid($_POST['eyestrain'])) {
             $errors['eyestrain'] = '目の疲れは-2から2までの整数で入力してください';
-
         }
         if ($_POST['headache'] === "") {
             $errors['headache'] = '頭痛を入力してください';
@@ -87,5 +84,4 @@ class RegisterController extends Controller
         [$y, $m, $d] = explode('-', $date);
         return checkdate($m, $d, $y);
     }
-
 }

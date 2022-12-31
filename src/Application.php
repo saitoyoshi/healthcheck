@@ -19,8 +19,8 @@ class Application
             'password' => 'pass',
             'database' => 'test_database',
         ]);
-
     }
+
     public function run()
     {
         try {
