@@ -5,11 +5,13 @@ class Controller
     protected $actionName;
     protected $databaseManager;
     protected $request;
+    protected $validation;
 
     public function __construct($application)
     {
         $this->databaseManager = $application->getDatabaseManager();
         $this->request = $application->getRequest();
+        $this->validation = $application->getValidation();
     }
     public function run($action)
     {

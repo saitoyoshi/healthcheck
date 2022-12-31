@@ -6,11 +6,13 @@ class Application
     protected $request;
     protected $response;
     protected $databaseManager;
+    protected $validation;
     public function __construct()
     {
         $this->request = new Request();
         $this->router = new Router($this->registerRoutes());
         $this->response = new Response();
+        $this->validation = new Validation();
         $this->databaseManager = new DatabaseManager();
         $this->databaseManager->connect([
             'hostname' => 'db',
@@ -42,6 +44,11 @@ class Application
     public function getRequest()
     {
         return $this->request;
+    }
+
+    public function getValidation()
+    {
+        return $this->validation;
     }
     private function runAction($controllerName, $action)
     {
