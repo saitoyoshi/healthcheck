@@ -14,8 +14,10 @@ class Router
         foreach ($this->routes as $path => $pattern) {
             if ($path === $pathInfo) {
                 return $pattern;
+
+
             }
-            throw new HttpNotFoundException();
         }
+        throw new HttpNotFoundException();
     }
 }

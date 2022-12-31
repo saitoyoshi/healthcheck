@@ -56,7 +56,10 @@ class Application
 
     private function registerRoutes()
     {
-        return ['/' => ['controller' => 'list', 'action' => 'index'],
+        return [
+            '/' => ['controller' => 'list', 'action' => 'index'],
+            '/register' => ['controller' => 'register', 'action' => 'index'],
+            '/register/create' => ['controller' => 'register', 'action' => 'create'],
         ];
     }
 

@@ -14,6 +14,7 @@
         }
     }
 ?>
+<a href="/register">記録をつける</a>
 <?php foreach ($records as $record) : ?>
     <div>
         <hr>
