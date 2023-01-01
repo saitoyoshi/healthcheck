@@ -2,10 +2,6 @@
 
 class Validation
 {
-    public function __construct()
-    {
-
-    }
     private function isValid($number)
     {
         if (!is_numeric($number)) {

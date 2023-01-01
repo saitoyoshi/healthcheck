@@ -19,7 +19,6 @@ function statusMessage(int $statuNumber): string
     <a class="btn btn-primary btn-sm mb-1" href="/register">記録をつける</a>
     <div class="row justify-content-around">
 <?php foreach ($records as $record) : ?>
-
     <div class="card border-info border-1 my-1 col-md-6 col-lg-4 bg-success text-center">
         <div class="card-body">
             <div class="card-title">日付: <?php echo date('Y/n/j', strtotime($record['recording_date'])) ?></div>
