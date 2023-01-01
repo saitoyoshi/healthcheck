@@ -16,27 +16,21 @@ function statusMessage(int $statuNumber): string
     return '不正な値が指定されました';
 }
 ?>
-<a href="/register">記録をつける</a>
+    <a class="btn btn-primary btn-sm mb-1" href="/register">記録をつける</a>
+    <div class="row justify-content-around">
 <?php foreach ($records as $record) : ?>
-    <div>
-        <hr>
-        <div>
-            <span>日付: <?php echo $record['recording_date'] ?></span>
-        </div>
-        <div>
-            <span>体調: <?php echo $record['physical_condition'] ?></span>
-        </div>
-        <div>
-            <span>気分: <?php echo statusMessage($record['mood_state']) ?></span>
-        </div>
-        <div>
-            <span>腰痛: <?php echo statusMessage($record['back_pain']) ?></span>
-        </div>
-        <div>
-            <span>目の疲れ: <?php echo statusMessage($record['eyestrain']) ?></span>
-        </div>
-        <div>
-            <span>頭痛: <?php echo statusMessage($record['headache'])?></span>
+
+    <div class="card border-info border-1 my-1 col-md-6 col-lg-4 bg-success text-center">
+        <div class="card-body">
+            <div class="card-title">日付: <?php echo date('Y/n/j', strtotime($record['recording_date'])) ?></div>
+            <ul class="list-group list-group-flush list-unstyled">
+                <li class="list-list-group-item">体調: <?php echo $record['physical_condition'] ?></li>
+                <li class="list-list-group-item">気分: <?php echo statusMessage($record['mood_state']) ?></li>
+                <li class="list-list-group-item">腰痛: <?php echo statusMessage($record['back_pain']) ?></li>
+                <li class="list-list-group-item">目の疲れ: <?php echo statusMessage($record['eyestrain']) ?></li>
+                <li class="list-list-group-item">頭痛: <?php echo statusMessage($record['headache'])?></li>
+            </ul>
         </div>
     </div>
 <?php endforeach; ?>
+</div>

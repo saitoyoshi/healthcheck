@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>healthcheck</title>
 </head>
 <body>
-    <h2><a href="/">ヘルスチェック</a></h2>
-    <?php echo $content; ?>
+    <div class="container">
+
+        <h2 class="h2 mt-2"><a class="text-decoration-none  text-primary" href="/">ヘルスチェック</a></h2>
+        <?php echo $content; ?>
+    </div>
 </body>
 </html>
